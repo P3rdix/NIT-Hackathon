@@ -4,33 +4,46 @@ from tkinter import filedialog as fd
 from tkinter.messagebox import showinfo
 import csv,os
 import pandas as pd
-
+   
 def csv_details(filepath):
+    global df,df2,text1,text2,text3,text4
+    menubutton_placement()
     print(filepath)
-    #to display the fields
-    '''f=open(filepath,"r",newline='')
-    label_text=''
-    rec=csv.reader(f)
-    for i in rec:
-        label_text+=str(i)
-        label_text+="\n"
-    f.close()'''
     df = pd.read_csv(filepath)
-    newlabel2 = Label(f2,text=df,background='thistle1')
-    newlabel2.place(x=15,y=30)
-    newlabel3 = Label(f3,text=df,background='thistle2')
-    newlabel3.place(x=15,y=600)
+    df2 = df
     
+    text1 = Text(f2, width=150, height=200)
+    text1.insert(INSERT,df)
+    text1.place(x=40,y=30)
+    text2 = Text(f3, width=150, height=200)
+    text2.insert(INSERT,df2)
+    text2.place(x=40,y=30)
+
+    stats1 = df.describe()
+    stats2 = df2.describe()
+    label01 = Label(f4,text="Original File Statistics")
+    label01.place(x=40,y=30)
+    text3 = Text(f4, width=150, height=50)
+    text3.insert(INSERT,stats1)
+    text3.place(x=40,y=60)
+    label02 = Label(f5,text="Edited File Statistics")
+    label02.place(x=40,y=30)
+    text4 = Text(f5, width=150, height=50)
+    text4.insert(INSERT,stats2)
+    text4.place(x=40,y=60)
     
 def menubutton_placement():
     menub1 = Menubutton(f1, text='Null Value Treatment', activebackground="red",width=100)
-    menub1.place(x=10,y=530)
+    menub1.place(x=10,y=430)
     menub1.menu = Menu(menub1, tearoff=0)
     menub1["menu"] = menub1.menu
     mayo_sauce = IntVar()
     ketchup = IntVar()
     menub1.menu.add_checkbutton(label='Remove null', variable=mayo_sauce)
     menub1.menu.add_checkbutton(label='Replace Null', variable=ketchup)
+
+    menub6 = Button(f1, text='Outlier removal', activebackground="red",width=85)
+    menub6.place(x=10,y=530)
 
     menub2 = Menubutton(f1, text='Data Drop', activebackground="red",width=100)
     menub2.place(x=10,y=630)
@@ -95,7 +108,7 @@ def screen1_window():
     f5 = Frame(root, bg='AntiqueWhite2', width=width1/3, height=height2/2)
     #place the frames on root with required rowspan and columnspan
     do_layout()
-    menubutton_placement()
+    #menubutton_placement()
 
     def select_file():
         global filepath
