@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>CSS Website Layout</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<style>
+			* {
+ 				box-sizing: border-box;
+			}
+
+			body {
+  				margin: 0;
+			}
+
+			/* Style the header */
+			.header {
+  				background-color: #f1f1f1;
+  				padding: 20px;
+  				text-align: center;
+			}
+
+			/* Style the top navigation bar */
+			.topnav {
+  				overflow: hidden;
+  					background-color: #333;
+			}
+
+			/* Style the topnav links */
+			.topnav a {
+ 				float: left;
+  				display: block;
+  				color: #f2f2f2;
+  				text-align: center;
+  				padding: 14px 16px;
+  				text-decoration: none;
+			}
+
+			/* Change color on hover */
+			.topnav a:hover {
+  				background-color: #ddd;
+  				color: black;
+			}
+
+			/* Create three unequal columns that floats next to each other */
+			.column {
+ 				float: left;
+  				padding: 10px;
+			}
+
+			/* Left and right column */
+				.column.side {
+  				width: 25%;
+			}
+
+			/* Middle column */
+				.column.middle {
+  				width: 50%;
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+  				content: "";
+  				display: table;
+  				clear: both;
+			}
+
+			/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+			@media screen and (max-width: 600px) {
+ 				 .column.side, .column.middle {
+    					width: 100%;
+  				}
+			}
+
+			.dropbtn {
+  				color: black;
+  				padding: 16px;
+  				font-size: 16px;
+  				border: none;
+  				cursor: pointer;
+			}
+
+			.dropdown {
+  				position: relative;
+ 				display: inline-block;
+			}
+
+			.dropdown-content {
+  				display: none;
+  				position: absolute;
+  				background-color: #f9f9f9;
+  				min-width: 160px;
+  				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  				z-index: 1;
+			}
+
+			.dropdown-content a {
+  				color: black;
+  				padding: 12px 16px;
+  				text-decoration: none;
+  				display: block;
+			}
+
+			.dropdown-content a:hover {background-color: #f1f1f1}
+
+			.dropdown:hover .dropdown-content {
+  				display: block;
+			}
+
+			.dropdown:hover .dropbtn {
+  				background-color: #3e8e41;
+			}
+			ul {
+ 				list-style-type: none;
+  				margin: 0;
+  				padding: 0;
+  				width: 25%;
+  				background-color: #f1f1f1;
+  				position: fixed;
+  				height: 100%;
+  				overflow: auto;
+			}
+
+			li a {
+  				display: block;
+  				color: #000;
+  				padding: 8px 16px;
+  				text-decoration: none;
+			}
+
+			li a.active {
+  				background-color: #04AA6D;
+  				color: white;
+			}
+
+			li a:hover:not(.active) {
+  				background-color: #555;
+  				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+  			<h1>PIPELINE</h1>
+  			<p>A website to preprocess your csv files</p>
+		</div>
+
+		<div class="topnav">
+  			<a href="#">Home</a>
+ 			 <a href="#">About</a>
+  			<a href="#">Login</a>
+		</div>
+
+		<div class="row">
+ 			 <div class="column side">
+				<ul>
+						<input 
+ 							 type="file"
+ 							 id="file1" 
+ 							 name="upload">
+  							
+					<h3>Preprocessing</h3>
+  					<li class="dropdown" ><a href="#home" class="dropbtn">Null Values</a>
+    						<div class="dropdown-content">
+      							<a href="#">Remove Null Values</a>
+      							<a href="#">Fill null value with another value</a>
+    					</div></li>
+ 		 			<li class="dropdown"><a href="#home" class="dropbtn">Data Creation</a>
+						<div class="dropdown-content">
+      							<a href="#">Home</a>
+      							<a href="#">About</a>
+      							<a href="#">Login</a>
+    					</div></li>
+  					<li class="dropdown"><a href="#contact" class="dropbtn">Drop Data</a>
+						<div class="dropdown-content">
+      							<a href="#">Remove Null Values</a>
+      							<a href="#">Remove Column</a>
+      							<a href="#">Remove Row</a>
+							<a href="#">Outlier Treatment</a>
+    					</div></li>
+  					<li class="dropdown"><a href="#about" class="dropbtn">Data Slicing</a>
+						<div class="dropdown-content">
+      							<a href="#">Binning</a>
+      							<a href="#">One-Hot Encoding</a>
+      							<a href="#">Label Encoding</a>
+    					</div></li>
+					<li class="dropdown"><a href="#about" class="dropbtn">Feature Scaling</a>
+						<div class="dropdown-content">
+      							<a href="#">Normalization</a>
+      							<a href="#">Standardization</a>
+    					</div></li>
+				</ul>
+ 			 </div>
+  
+  			<div class="column middle">
+				<div class="row">
+    					<h3>File1.csv</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+  				</div>
+
+				<div class="row">
+					<h3>File1_edit.csv</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+				</div>
+			</div>
+  
+ 			<div class="column side">
+				<div class="row">
+					<h2>Statistics</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+				</div>
+				<div class="row">
+					<h2>Statistics</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+				</div>
+   				
+  			</div>
+		</div>
+  
+	</body>
+</html>
+
+
