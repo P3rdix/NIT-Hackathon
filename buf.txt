@@ -1,0 +1,20 @@
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 23490 entries, 0 to 23489
+Data columns (total 13 columns):
+ #   Column                Non-Null Count  Dtype  
+---  ------                --------------  -----  
+ 0   employee_id           23490 non-null  int64  
+ 1   department            23490 non-null  object 
+ 2   region                23490 non-null  object 
+ 3   education             22456 non-null  object 
+ 4   gender                23490 non-null  object 
+ 5   recruitment_channel   23490 non-null  object 
+ 6   no_of_trainings       23490 non-null  int64  
+ 7   age                   23490 non-null  int64  
+ 8   previous_year_rating  21678 non-null  float64
+ 9   length_of_service     23490 non-null  int64  
+ 10  KPIs_met >80%         23490 non-null  int64  
+ 11  awards_won?           23490 non-null  int64  
+ 12  avg_training_score    23490 non-null  int64  
+dtypes: float64(1), int64(7), object(5)
+memory usage: 2.3+ MB
